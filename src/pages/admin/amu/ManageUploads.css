@@ -1,0 +1,123 @@
+.manage-uploads-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+.manage-uploads-main {
+  flex: 1;
+  padding: 2rem;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #1e293b;
+}
+
+/* Table styling */
+.uploads-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.uploads-table th,
+.uploads-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.uploads-table th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.uploads-table tbody tr:hover {
+  background-color: #e0f2fe;
+}
+
+/* File link */
+.file-link {
+  color: #0ea5e9;
+  text-decoration: underline;
+}
+
+.file-link:hover {
+  color: #0284c7;
+}
+
+/* Status badges */
+.status {
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status.pending {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.status.acc {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.status.rejected {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Action buttons */
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn {
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-accept {
+  background-color: #16a34a;
+  color: white;
+}
+
+.btn-accept:hover {
+  background-color: #15803d;
+}
+
+.btn-reject {
+  background-color: #b91c1c;
+  color: white;
+}
+
+.btn-reject:hover {
+  background-color: #991b1b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .uploads-table th,
+  .uploads-table td {
+    padding: 0.5rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,54 @@
+/* AdminSidebar.css */
+
+/* Sidebar container */
+.admin-sidebar {
+  background-color: #1e293b; /* dark blue-gray */
+  color: #ffffff;
+  min-height: 100vh;
+  width: 230px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title */
+.admin-sidebar h4 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #f1f5f9;
+}
+
+/* Navigation list */
+.admin-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.admin-sidebar li {
+  margin-bottom: 0.5rem;
+}
+
+/* Links */
+.admin-sidebar a.nav-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  color: #f1f5f9;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.admin-sidebar a.nav-link:hover {
+  background-color: #0ea5e9; /* light blue highlight */
+  color: #ffffff;
+  padding-left: 1rem; /* slight indent on hover */
+}
+
+/* Active link (optional) */
+.admin-sidebar a.nav-link.active {
+  background-color: #0284c7;
+  font-weight: bold;
+}
