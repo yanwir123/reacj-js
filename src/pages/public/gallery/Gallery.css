@@ -1,73 +1,192 @@
-/* Halaman utama */
-.gallery-page {
-  font-family: "Inter", sans-serif;
-  min-height: 100vh;
-  background-color: #f8fafc;
-  padding-bottom: 4rem;
+/* --- GLOBAL RESET & UTILITIES --- */
+.gallery-page-wrapper {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #fff;
+  padding: 80px 0;
 }
 
-/* Section container */
-.gallery-section.container {
+.container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 0 20px;
 }
 
-/* Judul section */
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
+/* --- HEADER / JUDUL --- */
+.gallery-header {
+  margin-bottom: 60px;
+  padding-left: 20px; /* Memberi ruang agar sejajar dengan grid */
+}
+
+.header-label-light {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #999; /* Warna abu-abu terang */
+  margin: 0;
+  line-height: 1;
+}
+
+.header-label-bold {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #222;
+  margin: 0 0 10px 0;
+  line-height: 1.1;
+}
+
+.header-divider {
+  width: 60px;
+  height: 4px;
+  background-color: #222;
+  margin: 10px 0 0 0;
+}
+
+.loading-text,
+.no-data-text {
   text-align: center;
-  margin-bottom: 2rem;
-  color: #1e293b;
+  color: #666;
+  font-size: 1.1rem;
+  padding: 40px 0;
 }
 
-/* Grid gallery */
+/* --- GALLERY GRID --- */
 .gallery-grid {
   display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* 5 kolom pada desktop, lebar minimum 200px per kolom */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px; /* Jarak antar kartu */
 }
 
-/* Card gallery */
 .gallery-card {
-  background-color: #fff;
-  border-radius: 0.5rem;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  aspect-ratio: 1 / 1; /* Membuat kartu selalu berbentuk kotak */
+  border-radius: 4px; /* Sudut sedikit membulat */
+  transition: transform 0.3s ease;
 }
 
 .gallery-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px); /* Efek naik saat di-hover */
 }
 
-/* Image */
+.gallery-card.placeholder-card {
+  background-color: #f0f0f0;
+}
+
 .gallery-image {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-bottom: 1px solid #e2e8f0;
+  height: 100%;
+  object-fit: cover; /* Memastikan gambar mengisi penuh tanpa distorsi */
+  display: block;
 }
 
-/* Info */
+/* Info overlay (dapat digunakan jika ingin menampilkan teks di atas gambar) */
 .gallery-info {
-  padding: 0.75rem 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(34, 34, 34, 0.7); /* Overlay gelap transparan */
+  color: #fff;
+  padding: 10px 15px;
+  transform: translateY(100%); /* Sembunyikan di bawah */
+  transition: transform 0.3s ease;
+}
+
+.gallery-card:hover .gallery-info {
+  transform: translateY(0); /* Tampilkan saat di-hover */
 }
 
 .gallery-title {
+  margin: 0;
+  font-size: 0.9rem;
   font-weight: 600;
-  font-size: 1rem;
-  color: #1e293b;
-  margin-bottom: 0.25rem;
-  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Tambahkan titik-titik jika judul terlalu panjang */
 }
 
-/* Jika gallery kosong */
-.no-items {
-  text-align: center;
-  color: #64748b;
-  font-size: 0.95rem;
-  margin-top: 1rem;
+/* --- PAGINATION (Sesuai Contoh Gambar) --- */
+.gallery-pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 50px;
+  padding-left: 20px;
+}
+
+.current-page {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.divider {
+  font-size: 1rem;
+  color: #999;
+  margin-right: 15px;
+}
+
+.total-pages {
+  font-size: 1.1rem;
+  color: #999;
+}
+
+.nav-button {
+  background: none;
+  border: 1px solid #ccc;
+  color: #222;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+  margin-left: 5px;
+}
+
+.nav-button:hover:not(:disabled) {
+  background-color: #222;
+  color: #fff;
+  border-color: #222;
+}
+
+.nav-button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-header {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .header-divider {
+    margin: 10px auto 0;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom di HP */
+    gap: 10px;
+  }
+
+  .header-label-light {
+    font-size: 2rem;
+  }
+
+  .header-label-bold {
+    font-size: 2.8rem;
+  }
+
+  .gallery-pagination {
+    justify-content: center;
+    padding-left: 0;
+  }
 }

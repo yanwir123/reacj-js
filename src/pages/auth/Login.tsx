@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axiosClient from "../../api/axiosClient";
 import { useNavigate } from "react-router-dom";
+// Pastikan Anda mengimpor file CSS
+import "./Login.css";
 
 // Interface response login
 interface LoginResponse {
@@ -26,13 +28,14 @@ interface ApiError {
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
-      // Login
       const res = await axiosClient.post<LoginResponse>("/auth/login", {
         username,
         password,
@@ -41,44 +44,111 @@ const Login: React.FC = () => {
 
       localStorage.setItem("token", token);
 
-      // Ambil role user
       const me = await axiosClient.get<MeResponse>("/users/me");
       localStorage.setItem("role", me.data.role);
 
       navigate(me.data.role === "admin" ? "/admin" : "/");
     } catch (err: unknown) {
       const error = err as ApiError;
-      alert(error.response?.data?.detail || "Login failed");
+      alert(error.response?.data?.detail || "Login gagal. Coba lagi.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50">
-      <form
-        onSubmit={submit}
-        className="bg-white p-6 rounded shadow w-full max-w-md"
-      >
-        <h2 className="text-xl font-bold mb-4">Login</h2>
-        <input
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Username"
-          className="w-full p-2 border rounded mb-3"
-          required
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          className="w-full p-2 border rounded mb-3"
-          required
-        />
+    <div className="login-page-container">
+      <form onSubmit={submit} className="login-form-card">
+        {/* Header Login */}
+        <div className="login-header">
+          {/* Placeholder untuk Ikon/Logo */}
+          <div className="login-icon-wrapper">
+            <svg
+              className="login-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3v-1m3-4h14"
+              ></path>
+            </svg>
+          </div>
+          <h2 className="login-title">Masuk ke Akun Anda</h2>
+          <p className="login-subtitle">Silakan masukkan kredensial Anda.</p>
+        </div>
+
+        {/* Input Username */}
+        <div className="form-group">
+          <label className="form-label" htmlFor="username">
+            Nama Pengguna
+          </label>
+          <input
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Masukkan nama pengguna"
+            className="form-input"
+            required
+            disabled={loading}
+          />
+        </div>
+
+        {/* Input Password */}
+        <div className="form-group">
+          <label className="form-label" htmlFor="password">
+            Kata Sandi
+          </label>
+          <input
+            id="password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Masukkan kata sandi"
+            className="form-input"
+            required
+            disabled={loading}
+          />
+        </div>
+
+        {/* Tombol Login */}
         <button
           type="submit"
-          className="w-full py-2 bg-sky-600 text-white rounded"
+          disabled={loading}
+          className={`login-button ${loading ? "is-loading" : ""}`}
         >
-          Login
+          {loading ? (
+            <span className="button-loading-content">
+              {/* Anda perlu memastikan animasi spinner CSS terdefinisi */}
+              <svg
+                className="spinner"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+              Memuat...
+            </span>
+          ) : (
+            "MASUK"
+          )}
         </button>
       </form>
     </div>

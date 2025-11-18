@@ -1,81 +1,168 @@
-/* Halaman utama */
-.blog-page {
-  font-family: "Inter", sans-serif;
-  min-height: 100vh;
-  background-color: #f8fafc;
-  padding-bottom: 4rem;
+/* Blog.css atau Projects.css */
+
+.projects-page-wrapper {
+  padding: 60px 0; /* Sesuaikan padding */
 }
 
-/* Section container */
-.blog-section.container {
-  max-width: 1200px;
+.projects-section.container {
+  max-width: 1200px; /* Sesuaikan lebar container */
   margin: 0 auto;
-  padding: 4rem 2rem;
 }
 
-/* Judul section */
-.section-title {
-  font-size: 2rem;
+/* --- Header Styling --- */
+.projects-header {
+  margin-bottom: 50px;
+  padding-left: 20px; /* Jarak untuk judul */
+}
+
+.project-page-title {
+  font-size: 48px; /* Ukuran font besar untuk 'Our Projects' */
   font-weight: 700;
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #1e293b;
+  margin: 0;
+  color: #333;
 }
 
-/* Grid blog */
-.blog-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+/* --- Project Card Styling --- */
+.project-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px; /* Jarak antar project */
+  padding: 20px 0;
 }
 
-/* Card blog */
-.blog-card {
-  background-color: #fff;
-  border-radius: 0.5rem;
+/* Mengatur urutan konten untuk layout bergantian */
+.project-card.image-left {
+  flex-direction: row; /* Gambar Kiri, Konten Kanan */
+}
+
+.project-card.image-right {
+  flex-direction: row-reverse; /* Gambar Kanan, Konten Kiri */
+}
+
+.project-image-container {
+  flex: 0 0 50%; /* Gambar mengambil 50% lebar */
+  max-width: 50%;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s, box-shadow 0.2s;
+  height: 300px; /* Tinggi gambar agar seragam */
 }
 
-.blog-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
-}
-
-/* Image */
-.blog-image {
+.project-image {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-bottom: 1px solid #e2e8f0;
+  height: 100%;
+  object-fit: cover; /* Memastikan gambar menutupi kontainer */
 }
 
-/* Info */
-.blog-info {
-  padding: 0.75rem 1rem;
+.project-info {
+  flex: 0 0 50%; /* Konten mengambil 50% lebar */
+  max-width: 50%;
+  padding: 0 40px; /* Jarak di sekitar teks konten */
 }
 
-.blog-title {
+.project-card.image-left .project-info {
+  padding-left: 60px; /* Margin konten lebih besar di kiri */
+}
+
+.project-card.image-right .project-info {
+  padding-right: 60px; /* Margin konten lebih besar di kanan */
+}
+
+/* --- Project Content Styling --- */
+.project-title {
+  font-size: 24px;
   font-weight: 600;
-  font-size: 1.1rem;
-  color: #1e293b;
-  margin-bottom: 0.25rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
 }
 
-.blog-content {
-  font-size: 0.95rem;
-  color: #475569;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.project-content {
+  font-size: 14px; /* Ukuran font sesuai gambar */
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 25px;
 }
 
-/* Pesan jika kosong */
-.no-items {
-  text-align: center;
-  color: #64748b;
-  font-size: 0.95rem;
-  margin-top: 1rem;
+/* --- View More Link Styling (VIEW MORE →) --- */
+.view-more-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px; /* Font kecil, huruf kapital */
+  color: #333; /* Warna gelap */
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.arrow {
+  margin-left: 10px;
+  font-size: 18px; /* Ukuran panah lebih besar */
+  transition: margin-left 0.3s;
+}
+
+.view-more-link:hover .arrow {
+  margin-left: 15px; /* Efek hover panah bergerak */
+}
+
+/* --- Pagination Styling (Perlu disesuaikan) --- */
+.blog-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Posisikan ke kiri */
+  margin-top: 30px;
+  padding-left: 20px;
+  font-size: 14px;
+  color: #999;
+}
+
+.current-page,
+.total-pages {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.divider {
+  margin: 0 5px;
+}
+
+.nav-separator {
+  margin: 0 10px;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+  padding: 0 5px;
+  transition: opacity 0.3s;
+}
+
+.nav-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Media query untuk tampilan mobile/tablet */
+@media (max-width: 768px) {
+  .project-card {
+    flex-direction: column !important; /* Susun ke bawah */
+  }
+
+  .project-image-container,
+  .project-info {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .project-info {
+    padding: 20px;
+  }
+
+  .project-image-container {
+    height: auto;
+  }
 }

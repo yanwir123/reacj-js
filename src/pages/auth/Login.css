@@ -1,0 +1,151 @@
+/* --- Global Styles for Login Page --- */
+.login-page-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6; /* bg-gray-100 */
+  padding: 1rem;
+}
+
+/* --- Login Form Card --- */
+.login-form-card {
+  background-color: #ffffff; /* bg-white */
+  padding: 2rem; /* p-8 */
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1); /* shadow-2xl */
+  width: 100%;
+  max-width: 24rem; /* max-w-sm */
+  transition: box-shadow 0.5s ease;
+}
+
+.login-form-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.05); /* hover:shadow-xl (diubah sedikit karena 2xl sudah tinggi) */
+}
+
+/* --- Header Styling --- */
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem; /* mb-8 */
+}
+
+.login-icon-wrapper {
+  margin: 0 auto;
+  width: 3rem; /* w-12 */
+  height: 3rem; /* h-12 */
+  background-color: #0284c7; /* bg-sky-600 */
+  border-radius: 9999px; /* rounded-full */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem; /* mb-3 */
+}
+
+.login-icon {
+  width: 1.5rem; /* w-6 */
+  height: 1.5rem; /* h-6 */
+  color: #ffffff; /* text-white */
+}
+
+.login-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 800; /* font-extrabold */
+  color: #1f2937; /* text-gray-800 */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.login-subtitle {
+  font-size: 0.875rem; /* text-sm */
+  color: #6b7280; /* text-gray-500 */
+  margin-top: 0.25rem; /* mt-1 */
+}
+
+/* --- Form Group & Input Styles --- */
+.form-group {
+  margin-bottom: 1rem; /* mb-4, mb-6 */
+}
+
+.form-label {
+  display: block;
+  color: #374151; /* text-gray-700 */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 600; /* font-semibold */
+  margin-bottom: 0.5rem; /* mb-2 */
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem; /* p-3 */
+  border: 1px solid #d1d5db; /* border border-gray-300 */
+  border-radius: 0.5rem; /* rounded-lg */
+  outline: none;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-input:focus {
+  border-color: #0ea5e9; /* focus:border-sky-500 */
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.5); /* focus:ring-2 focus:ring-sky-500 */
+}
+
+/* Input Disabled State */
+.form-input:disabled {
+  background-color: #f9fafb; /* bg-gray-50 */
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* --- Button Styles --- */
+.login-button {
+  width: 100%;
+  padding: 0.75rem 0; /* py-3 */
+  color: #ffffff; /* text-white */
+  border-radius: 0.5rem; /* rounded-lg */
+  font-weight: 700; /* font-bold */
+  background-color: #0284c7; /* bg-sky-600 */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-button:hover:not(.is-loading) {
+  background-color: #0369a1; /* hover:bg-sky-700 */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.05); /* hover:shadow-lg */
+}
+
+/* Loading State for Button */
+.login-button.is-loading {
+  background-color: #38bdf8; /* bg-sky-400 */
+  cursor: not-allowed;
+}
+
+.button-loading-content {
+  display: flex;
+  align-items: center;
+}
+
+/* Spinner Animation */
+.spinner {
+  animation: spin 1s linear infinite;
+  margin-right: 0.75rem; /* mr-3 */
+  height: 1.25rem; /* h-5 */
+  width: 1.25rem; /* w-5 */
+  color: #ffffff; /* text-white */
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

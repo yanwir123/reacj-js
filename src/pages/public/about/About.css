@@ -1,77 +1,238 @@
-/* Halaman About */
+/* --- GLOBAL RESET & UTILITIES --- */
 .about-page {
-  font-family: "Inter", sans-serif;
-  background-color: #f8fafc;
-  color: #1e293b;
-  min-height: 100vh;
-  padding-bottom: 4rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Font bersih */
+  color: #333;
+  background-color: #fff;
 }
 
-/* Hero / Tentang Kami */
-.about-hero {
-  background-color: #ffffff;
-  padding: 4rem 2rem;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  margin-bottom: 2rem;
-}
-
-.about-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.about-description {
-  font-size: 1rem;
-  color: #475569;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-/* Section Visi & Misi */
-.about-mission {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+.container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 20px;
+}
+
+/* --- 1. HERO SECTION --- */
+.about-hero {
+  padding: 80px 0 60px; /* Memberi ruang napas atas bawah */
+  background-color: #f9f9f9; /* Latar abu-abu sangat muda agar beda sedikit */
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px; /* Membatasi lebar teks agar enak dibaca */
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+/* Garis dekorasi kecil di bawah judul */
+.hero-divider {
+  width: 60px;
+  height: 4px;
+  background-color: #222;
+  margin: 0 auto 30px;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* --- 2. VISI & MISI SECTION --- */
+.about-values {
+  padding: 80px 20px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Membagi 2 kolom sama besar */
+  gap: 50px;
+  align-items: start;
+}
+
+.value-card {
+  padding: 10px;
+}
+
+.value-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #222;
+  position: relative;
+  display: inline-block;
+}
+
+/* Garis bawah untuk judul Visi/Misi */
+.value-title::after {
+  content: "";
+  display: block;
+  width: 40%;
+  height: 3px;
+  background-color: #ddd; /* Garis abu muda */
+  margin-top: 10px;
+}
+
+.value-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #666;
+}
+
+.value-list {
+  list-style: none; /* Menghilangkan bullet default */
+  padding: 0;
+  margin: 0;
+}
+
+.value-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* Custom Bullet Point (Garis kecil) */
+.value-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #222;
+  font-weight: bold;
+}
+
+/* --- 3. CONTACT SECTION (Style Baru) --- */
+.about-contact-section {
+  background-color: #fff;
+  width: 100%;
+  padding: 80px 0;
+  border-top: 1px solid #eee; /* Pemisah tipis dengan bagian atas */
+}
+
+.contact-container-split {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 60px;
+  padding: 0 20px;
+}
+
+.contact-text-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
-/* Card untuk Visi & Misi */
-.mission-card {
-  background-color: #ffffff;
-  flex: 1 1 300px;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s, box-shadow 0.2s;
+.contact-label-light {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #999;
+  margin: 0;
+  line-height: 1;
 }
 
-.mission-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+.contact-label-bold {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #222;
+  margin: 0 0 40px 0;
+  line-height: 1.1;
 }
 
-.card-title {
-  font-size: 1.25rem;
+.contact-details {
+  margin-bottom: 40px;
+}
+
+.company-name {
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #222;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.address-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.phone-number {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.email-text {
+  font-size: 1rem;
+  color: #666;
+}
+
+.btn-contact-dark {
+  display: inline-block;
+  background-color: #222;
+  color: #fff;
+  padding: 18px 50px;
+  font-size: 0.85rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  border: none;
+  width: fit-content;
+  transition: all 0.3s ease;
 }
 
-.card-content {
-  font-size: 0.95rem;
-  color: #475569;
-  line-height: 1.6;
+.btn-contact-dark:hover {
+  background-color: #000;
+  transform: translateY(-2px);
 }
 
-.card-list {
-  font-size: 0.95rem;
-  color: #475569;
-  line-height: 1.6;
-  padding-left: 1.25rem;
-  list-style-type: disc;
+.contact-map-area {
+  flex: 1;
+  min-height: 450px;
+  background-color: #f0f0f0;
+  border-radius: 4px; /* Sedikit radius agar tidak terlalu tajam */
+  overflow: hidden;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .values-grid,
+  .contact-container-split {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .contact-label-light {
+    font-size: 2rem;
+  }
+
+  .contact-label-bold {
+    font-size: 2.8rem;
+  }
+
+  .contact-map-area {
+    min-height: 300px;
+  }
 }
