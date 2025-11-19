@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 // Pastikan path logo ini sama dengan yang digunakan di Navbar
 import logo from "../../public/Logo nya.jpeg";
-import "./footer/Footer.css";
+import "./Footer.css";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
