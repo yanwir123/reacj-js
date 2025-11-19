@@ -3,7 +3,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 /* components */
-import Navbar from "./components/navbar/Navbar.tsx";
+import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/footer";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminLayout from "./components/ProtectedRoute";
