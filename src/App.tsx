@@ -6,7 +6,9 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/footer";
 import ProtectedRoute from "./components/ProtectedRoute";
-import AdminLayout from "./components/ProtectedRoute";
+// PENTING: Mengasumsikan AdminLayout berada di src/components/AdminLayout
+// Jika file ini ada di lokasi lain, Anda perlu menyesuaikan path ini.
+import AdminLayout from "./components/admin/AdminLayout";
 
 /* public pages */
 import Home from "./pages/public/home/Home";
