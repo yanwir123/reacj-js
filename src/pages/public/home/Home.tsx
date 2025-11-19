@@ -63,6 +63,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ================= ABOUT ================= */}
+      <About />
+
       {/* ================= ESTIMASI ================= */}
       <section className="estimate">
         <h2>Permintaan Estimasi</h2>
@@ -91,31 +94,6 @@ export default function Home() {
         </form>
       </section>
 
-      {/* ================= ABOUT ================= */}
-      <section className="about">
-        <div className="about-grid">
-          <img src="../../../../public/Logo nya.jpeg" className="about-img" />
-          <div className="about-content">
-            <h3>Tentang Kami</h3>
-            <p>
-              ARTHAWANA RENOVASI BANGUNAN adalah perusahaan jasa renovasi,
-              perbaikan, dan konstruksi profesional di Jakarta Barat. Kami
-              berkomitmen memberikan kualitas terbaik, tepat waktu, dan
-              transparan dari desain hingga finishing.
-            </p>
-            <h4>Visi</h4>
-            <p>Menjadi penyedia layanan renovasi & konstruksi terpercaya.</p>
-            <h4>Misi</h4>
-            <ul>
-              <li>Layanan renovasi & konstruksi profesional.</li>
-              <li>Material berkualitas & tenaga ahli.</li>
-              <li>Transparansi & ketepatan waktu.</li>
-              <li>Solusi aman & efisien.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
       {/* ================= SERVICES ================= */}
       <Services />
 
@@ -124,9 +102,6 @@ export default function Home() {
 
       {/* ================= GALLERY ================= */}
       <Gallery />
-
-      {/* ================= ABOUT ================= */}
-      <About />
 
       {/* ================= CONTACT ================= */}
       <Contact />

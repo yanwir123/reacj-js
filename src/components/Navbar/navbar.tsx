@@ -35,9 +35,7 @@ const Navbar: React.FC = () => {
           />
           <div className="text-container">
             <span className="name">Arthamawa Renovasi</span>
-            <span className="tagline">
-              arthawarnarenovasi.com — Jakarta Barat
-            </span>
+            <span className="tagline">Arthamawa.com — Jakarta Barat</span>
           </div>
         </Link>
 
