@@ -3,11 +3,12 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 /* components */
-import Navbar from "./components/navbar/Navbar";
+// KOREKSI UTAMA: Menggunakan 'navbar' dan 'footer' (huruf kecil)
+// agar sesuai dengan 'navbar.tsx' dan 'footer.tsx' di struktur folder Anda.
+import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
 import ProtectedRoute from "./components/ProtectedRoute";
-// PENTING: Mengasumsikan AdminLayout berada di src/components/AdminLayout
-// Jika file ini ada di lokasi lain, Anda perlu menyesuaikan path ini.
+// Memperbaiki AdminLayout, mengasumsikan ada di src/components/admin/AdminLayout.tsx
 import AdminLayout from "./components/admin/AdminLayout";
 
 /* public pages */
