@@ -3,8 +3,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 /* components */
-import Navbar from "./components/navbar/Navbar";
-import Footer from "./components/footer/Footer";
+import Navbar from "./components/navbar/navbar";
+import Footer from "./components/Footer/footer";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminLayout from "./components/ProtectedRoute";
 
