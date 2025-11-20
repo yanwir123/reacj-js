@@ -1,4 +1,4 @@
-/* --- GLOBAL RESET & UTILITIES --- */
+/* --- GLOBAL RESET & BASE --- */
 .about-page {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
@@ -11,7 +11,9 @@
   padding: 0 20px;
 }
 
-/* --- 1. HERO SECTION --- */
+/* ========================================= */
+/* 1. HERO SECTION */
+/* ========================================= */
 .about-hero {
   padding: 80px 0 60px;
   background-color: #f9f9f9;
@@ -28,7 +30,6 @@
   font-weight: 700;
   color: #222;
   margin-bottom: 20px;
-  letter-spacing: -1px;
 }
 
 .hero-divider {
@@ -44,16 +45,17 @@
   color: #555;
 }
 
-/* --- 2. VISI & MISI SECTION --- */
+/* ========================================= */
+/* 2. VISI & MISI */
+/* ========================================= */
 .about-values {
-  padding: 80px 20px;
+  padding: 80px 0;
 }
 
 .values-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
-  align-items: start;
 }
 
 .value-card {
@@ -66,7 +68,6 @@
   margin-bottom: 25px;
   color: #222;
   position: relative;
-  display: inline-block;
 }
 
 .value-title::after {
@@ -94,8 +95,6 @@
   position: relative;
   padding-left: 25px;
   margin-bottom: 15px;
-  font-size: 1rem;
-  line-height: 1.6;
   color: #666;
 }
 
@@ -107,24 +106,22 @@
   font-weight: bold;
 }
 
-/* --- 3. CONTACT SECTION --- */
+/* ========================================= */
+/* 3. CONTACT SECTION (Match TSX Baru) */
+/* ========================================= */
 .about-contact-section {
-  background-color: #fff;
-  width: 100%;
   padding: 80px 0;
+  background-color: #fff;
   border-top: 1px solid #eee;
 }
 
 .contact-container-split {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
   gap: 60px;
-  padding: 0 20px;
+  align-items: flex-start;
 }
 
+/* --- KIRI (TITLE + INFO) --- */
 .contact-text-area {
   flex: 1;
   display: flex;
@@ -137,49 +134,42 @@
   font-weight: 300;
   color: #999;
   margin: 0;
-  line-height: 1;
 }
 
 .contact-label-bold {
   font-size: 3.5rem;
   font-weight: 800;
   color: #222;
-  margin: 0 0 40px 0;
-  line-height: 1.1;
+  margin: 5px 0 40px;
 }
 
-.contact-details {
-  margin-bottom: 40px;
-}
-
-.company-name {
+.company-name,
+.contact-company {
   font-size: 0.9rem;
   font-weight: 800;
-  text-transform: uppercase;
-  color: #222;
-  margin-bottom: 10px;
   letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: #222;
 }
 
-.address-text {
+.address-text,
+.phone-number,
+.email-text,
+.contact-text {
   font-size: 1rem;
   line-height: 1.6;
-  margin-bottom: 30px;
   color: #666;
+  margin-bottom: 15px;
 }
 
 .phone-number {
   font-size: 1.2rem;
   font-weight: 700;
   color: #222;
-  margin-bottom: 10px;
 }
 
-.email-text {
-  font-size: 1rem;
-  color: #666;
-}
-
+/* BUTTON */
 .btn-contact-dark {
   display: inline-block;
   background-color: #222;
@@ -190,8 +180,7 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   text-decoration: none;
-  border: none;
-  width: fit-content;
+  margin-top: 25px;
   transition: all 0.3s ease;
 }
 
@@ -200,40 +189,54 @@
   transform: translateY(-2px);
 }
 
-/* ===================== */
-/* FIX GOOGLE MAP AREA   */
-/* ===================== */
-.contact-map-area {
+/* --- KANAN (INFO DETAILS) --- */
+.info-details {
   flex: 1;
-  height: 450px; /* Tinggi stabil */
-  background-color: #f0f0f0;
-  border-radius: 4px;
-  overflow: hidden;
-
-  max-width: 90%;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
 }
 
-.contact-map-area iframe {
-  width: 100% !important;
-  height: 100% !important; /* FIX utama */
-  display: block;
-  border: 0;
+.info-item h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
 }
 
-/* --- RESPONSIVE MODE --- */
-@media (max-width: 768px) {
-  .values-grid {
-    grid-template-columns: 1fr;
-  }
+.info-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 4px 0;
+}
+/* ========================================= */
+/* RESPONSIVE */
+/* ========================================= */
 
+/* --- Tablet Landscape & Lefbar (max-width: 1024px) --- */
+@media (max-width: 1024px) {
   .contact-container-split {
-    flex-direction: column;
     gap: 40px;
   }
 
-  .hero-title {
-    font-size: 2.5rem;
+  .contact-label-light {
+    font-size: 2.2rem;
+  }
+
+  .contact-label-bold {
+    font-size: 3rem;
+  }
+
+  .info-details {
+    gap: 25px;
+  }
+}
+
+/* --- Tablet Portrait (max-width: 900px) --- */
+@media (max-width: 900px) {
+  .contact-container-split {
+    gap: 35px;
   }
 
   .contact-label-light {
@@ -244,7 +247,80 @@
     font-size: 2.8rem;
   }
 
+  .info-details {
+    gap: 20px;
+  }
+}
+
+/* --- Mobile (max-width: 768px) --- */
+@media (max-width: 768px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-container-split {
+    flex-direction: column;
+    gap: 45px;
+  }
+
+  .contact-label-light {
+    font-size: 1.8rem;
+  }
+
+  .contact-label-bold {
+    font-size: 2.4rem;
+    margin-bottom: 25px;
+  }
+
+  /* Map dibuat lebih tinggi agar tidak terlihat terlalu kecil */
+  .contact-map-box,
   .contact-map-area {
-    height: 300px;
+    width: 100%;
+    height: 380px !important;
+  }
+
+  /* Text spacing lebih nyaman di mobile */
+  .contact-text-area {
+    margin-bottom: 10px;
+  }
+
+  .info-details {
+    gap: 25px;
+  }
+
+  .info-item h3 {
+    font-size: 1.15rem;
+  }
+
+  .info-item p {
+    font-size: 0.95rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+}
+
+/* --- Small Mobile (max-width: 480px) --- */
+@media (max-width: 480px) {
+  .contact-label-light {
+    font-size: 1.6rem;
+  }
+
+  .contact-label-bold {
+    font-size: 2.1rem;
+  }
+
+  .contact-map-box,
+  .contact-map-area {
+    height: 420px !important; /* dibuat lebih besar untuk HP kecil */
+  }
+
+  .info-item h3 {
+    font-size: 1.05rem;
+  }
+
+  .info-item p {
+    font-size: 0.9rem;
   }
 }

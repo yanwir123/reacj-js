@@ -22,7 +22,7 @@ const About: React.FC = () => {
       {/* ================= VISI & MISI SECTION ================= */}
       <section className="about-values container">
         <div className="values-grid">
-          {/* Kartu Visi */}
+          {/* VISI */}
           <div className="value-card">
             <h2 className="value-title">Visi</h2>
             <p className="value-text">
@@ -32,7 +32,7 @@ const About: React.FC = () => {
             </p>
           </div>
 
-          {/* Kartu Misi */}
+          {/* MISI */}
           <div className="value-card">
             <h2 className="value-title">Misi</h2>
             <ul className="value-list">
@@ -57,47 +57,60 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* ================= CONTACT SECTION (Sesuai Request Sebelumnya) ================= */}
-      <section className="about-contact-section">
+      {/* ================= CONTACT SECTION ================= */}
+      <section className="about-contact-section container">
         <div className="contact-container-split">
-          {/* Kolom Kiri: Informasi Teks */}
+          {/* === KIRI — Informasi Singkat === */}
           <div className="contact-text-area">
-            <div className="contact-header">
-              <h2 className="contact-label-light">Contact</h2>
-              <h1 className="contact-label-bold">Information</h1>
+            <h2 className="contact-label-light">Contact</h2>
+            <h1 className="contact-label-bold">Information</h1>
+            {/* === KANAN — Detail Lengkap === */}
+            <div className="info-details">
+              <div className="info-item">
+                <h3>Alamat Kantor</h3>
+                <p>
+                  Anggrek No.24 Rt.10/03, Kel. Kelapa Dua,
+                  <br />
+                  Kec. Kebon Jeruk, Jakarta Barat
+                </p>
+              </div>
+
+              <div className="info-item">
+                <h3>Telepon / WhatsApp</h3>
+                <p>
+                  <strong>Romdon M:</strong> 0877-8794-2532
+                </p>
+                <p>
+                  <strong>Iwan S:</strong> 0856-9322-1161
+                </p>
+              </div>
+
+              <div className="info-item">
+                <h3>Email & Website</h3>
+                <p>ptarthawana.renovasibangunan@gmail.com</p>
+                <p>www.arthawana.com</p>
+              </div>
+
+              <a
+                href="https://wa.me/6287787942532"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-contact-dark"
+              >
+                CONTACT US
+              </a>
             </div>
-
-            <div className="contact-details">
-              <h3 className="company-name">ARTHAWANA RENOVASI BANGUNAN</h3>
-              <p className="address-text">
-                Anggrek No.24 Rt.10/03, Kelapa Dua,
-                <br />
-                Kebon Jeruk, Jakarta Barat 11550
-              </p>
-
-              <p className="phone-number">0877-8794-2532</p>
-              <p className="email-text">info@arthawana.com</p>
-            </div>
-
-            <a
-              href="https://wa.me/6287787942532"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-contact-dark"
-            >
-              CONTACT US
-            </a>
           </div>
 
-          {/* Kolom Kanan: Peta */}
-          <div className="contact-map-area">
+          {/* Kanan - Map */}
+          <div className="contact-map-box">
             <iframe
               title="Lokasi ARTHAWANA"
               src="https://maps.google.com/maps?q=Jl.+Anggrek+No.24+Kebon+Jeruk&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
-              allowFullScreen={true}
+              allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>

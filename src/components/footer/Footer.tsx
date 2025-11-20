@@ -85,13 +85,21 @@ const Footer: React.FC = () => {
             <span className="contact-icon"></span>
             {/* Link langsung ke WhatsApp (walaupun di kolom kontak) */}
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-              0877-8794-2532
+              <strong>Romdon M:</strong> 0877-8794-2532
             </a>
           </div>
 
           <div className="contact-item">
             <span className="contact-icon"></span>
-            <p>arthawnarenovasi@gmail.com</p>
+            {/* Link langsung ke WhatsApp (walaupun di kolom kontak) */}
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+              <strong>Iwan S:</strong> 0856-9322-1161
+            </a>
+          </div>
+
+          <div className="contact-item">
+            <span className="contact-icon"></span>
+            <p>ptarthawana.renovasibangunan@gmail.com</p>
           </div>
         </div>
 
