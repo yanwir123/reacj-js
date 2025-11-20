@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { getGallery } from "../../../api/gallery";
+import React from "react";
 import "./Gallery.css";
 
 // Interface gallery item
@@ -9,100 +8,106 @@ interface GalleryItem {
   image_url: string;
 }
 
-// Interface response API
-interface GalleryResponse {
-  data: GalleryItem[];
-}
-
 const Gallery: React.FC = () => {
-  const [items, setItems] = useState<GalleryItem[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    const fetchGallery = async () => {
-      try {
-        const res: GalleryResponse = await getGallery();
-        setItems(res.data);
-      } catch {
-        setItems([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchGallery();
-  }, []);
-
-  // Catatan: Placeholder image untuk kasus data masih kosong
-  const placeholderItems = Array(10).fill({
-    id: 0,
-    title: "Memuat...",
-    image_url: "",
-  });
-
-  const displayItems = loading && items.length === 0 ? placeholderItems : items;
+  // Data hardcode disesuaikan agar cocok dengan data layanan konstruksi/renovasi
+  const items: GalleryItem[] = [
+    {
+      id: 1,
+      title: "Renovasi Total Rumah Tinggal",
+      image_url: "../../../../public/gmbr1 (1).jpeg", // Rumah Bpk. Wendy
+    },
+    {
+      id: 2,
+      title: "Pembangunan Rumah Baru Minimalis",
+      image_url: "../../../../public/gmbr1 (2).jpeg", // Rumah Baru Putih
+    },
+    {
+      id: 3,
+      title: "Pekerjaan Struktur Lantai Atas",
+      image_url: "../../../../public/gmbr1 (9).jpeg", // Struktur Rangka Atas
+    },
+    {
+      id: 4,
+      title: "Perubahan Fasad Rumah",
+      image_url: "../../../../public/gmbr1 (4).jpeg", // Renovasi Bpk. Ray & Ibu Dinda
+    },
+    {
+      id: 5,
+      title: "Pemasangan Dinding Bata Ringan",
+      image_url: "../../../../public/gmbr1 (5).jpeg", // Pemasangan Bata
+    },
+    {
+      id: 6,
+      title: "Proyek Pembangunan Dua Lantai",
+      image_url: "../../../../public/gmbr1 (6).jpeg", // Proyek Kelapa Dua
+    },
+    {
+      id: 7,
+      title: "Konstruksi Balok & Kolom Beton",
+      image_url: "../../../../public/gmbr1 (7).jpeg", // Pekerjaan Balok & Kolom
+    },
+    {
+      id: 8,
+      title: "Pekerjaan Rangka Atap Baja",
+      image_url: "../../../../public/gmbr1 (10).jpeg", // Pekerja di atas rangka baja
+    },
+    {
+      id: 9,
+      title: "Renovasi Interior Dapur/Ruang Keluarga",
+      image_url: "../../../../public/gmbr2 (1).png", // Renovasi Interior Before/After
+    },
+    {
+      id: 10,
+      title: "Pekerjaan Finishing Fasad",
+      image_url: "../../../../public/gmbr2 (2).png", // Fasad dengan Roster
+    },
+    {
+      id: 11,
+      title: "Pengecoran Struktur Beton",
+      image_url: "../../../../public/gmbr2 (3).png", // Pengecoran Truk Mixer
+    },
+  ];
 
   return (
     <div className="gallery-page-wrapper">
       <section className="gallery-section container">
-        {/* Judul dengan style modern (mirip Contact/About) */}
+        {/* Header */}
         <div className="gallery-header">
           <h2 className="header-label-light">Portofolio</h2>
           <h1 className="header-label-bold">Galeri Proyek</h1>
           <div className="header-divider"></div>
         </div>
 
-        {/* Tampilkan pesan loading jika data sedang dimuat */}
-        {loading && items.length === 0 && (
-          <p className="loading-text">Memuat foto galeri...</p>
-        )}
-
         {/* Grid Foto */}
         <div className="gallery-grid">
-          {displayItems.map((i, index) => (
-            <div
-              key={i.id === 0 ? `ph-${index}` : i.id}
-              className={`gallery-card ${i.id === 0 ? "placeholder-card" : ""}`}
-            >
+          {items.map((i) => (
+            <div key={i.id} className="gallery-card">
               <img
-                // Gunakan placeholder warna abu-abu jika sedang loading
-                src={
-                  i.id === 0
-                    ? "https://placehold.co/400x400/f0f0f0/f0f0f0"
-                    : `${
-                        import.meta.env.VITE_API_BASE || "http://127.0.0.1:8000"
-                      }/${i.image_url}`
-                }
+                // Perhatian: Pastikan path ini benar di proyek Anda.
+                // Saya menggunakan struktur yang sama seperti Anda, tapi disarankan
+                // untuk menggunakan path absolut atau import jika menggunakan framework seperti Next.js/Vite.
+                src={i.image_url}
                 alt={i.title}
                 className="gallery-image"
                 loading="lazy"
               />
               <div className="gallery-info">
-                {/* Judul hanya muncul saat data tidak loading */}
-                {i.id !== 0 && <h4 className="gallery-title">{i.title}</h4>}
+                <h4 className="gallery-title">{i.title}</h4>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Placeholder Pagination (Sesuai contoh gambar) */}
-        {items.length > 0 && (
-          <div className="gallery-pagination">
-            <span className="current-page">01</span>
-            <span className="divider">/</span>
-            <span className="total-pages">05</span>
-            <button className="nav-button" disabled>
-              ←
-            </button>
-            <button className="nav-button">→</button>
-          </div>
-        )}
-
-        {items.length === 0 && !loading && (
-          <p className="no-data-text">
-            Maaf, belum ada foto yang diunggah di galeri ini.
-          </p>
-        )}
+        {/* Pagination statis (seperti contoh gambar) */}
+        <div className="gallery-pagination">
+          <span className="current-page">01</span>
+          <span className="divider">/</span>
+          <span className="total-pages">05</span>
+          <button className="nav-button" disabled>
+            ←
+          </button>
+          <button className="nav-button">→</button>
+        </div>
       </section>
     </div>
   );

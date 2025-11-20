@@ -1,143 +1,155 @@
-/* Blog.css atau Projects.css */
-
+/* =========================
+   WRAPPER & CONTAINER
+========================= */
 .projects-page-wrapper {
-  padding: 60px 0; /* Sesuaikan padding */
+  padding: 60px 0;
 }
 
 .projects-section.container {
-  max-width: 1200px; /* Sesuaikan lebar container */
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* --- Header Styling --- */
+/* =========================
+        HEADER
+========================= */
 .projects-header {
   margin-bottom: 50px;
-  padding-left: 20px; /* Jarak untuk judul */
 }
 
 .project-page-title {
-  font-size: 48px; /* Ukuran font besar untuk 'Our Projects' */
+  font-size: 42px;
   font-weight: 700;
   margin: 0;
-  color: #333;
+  color: #222;
 }
 
-/* --- Project Card Styling --- */
+/* =========================
+        PROJECT CARD
+========================= */
 .project-card {
   display: flex;
   align-items: center;
-  margin-bottom: 60px; /* Jarak antar project */
-  padding: 20px 0;
+  gap: 40px;
+  margin-bottom: 70px;
 }
 
-/* Mengatur urutan konten untuk layout bergantian */
+/* Alternating layout */
 .project-card.image-left {
-  flex-direction: row; /* Gambar Kiri, Konten Kanan */
+  flex-direction: row;
 }
 
 .project-card.image-right {
-  flex-direction: row-reverse; /* Gambar Kanan, Konten Kiri */
+  flex-direction: row-reverse;
 }
 
+/* IMAGE SECTION */
 .project-image-container {
-  flex: 0 0 50%; /* Gambar mengambil 50% lebar */
+  flex: 0 0 50%;
   max-width: 50%;
+  height: 320px;
   overflow: hidden;
-  height: 300px; /* Tinggi gambar agar seragam */
+  border-radius: 10px;
 }
 
 .project-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Memastikan gambar menutupi kontainer */
+  object-fit: cover;
 }
 
+/* TEXT SECTION */
 .project-info {
-  flex: 0 0 50%; /* Konten mengambil 50% lebar */
+  flex: 0 0 50%;
   max-width: 50%;
-  padding: 0 40px; /* Jarak di sekitar teks konten */
 }
 
-.project-card.image-left .project-info {
-  padding-left: 60px; /* Margin konten lebih besar di kiri */
-}
-
-.project-card.image-right .project-info {
-  padding-right: 60px; /* Margin konten lebih besar di kanan */
-}
-
-/* --- Project Content Styling --- */
 .project-title {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 600;
-  margin-top: 0;
-  margin-bottom: 15px;
-  color: #333;
+  margin: 0 0 15px 0;
+  color: #222;
 }
 
 .project-content {
-  font-size: 14px; /* Ukuran font sesuai gambar */
-  line-height: 1.6;
-  color: #666;
-  margin-bottom: 25px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 20px;
 }
 
-/* --- View More Link Styling (VIEW MORE →) --- */
-.view-more-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
+/* =========================
+   VIEW MORE / READ MORE
+========================= */
+
+/* Base style seperti teks hyperlink */
+.button-as-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 10px;
+  font-size: 14px;
   font-weight: 600;
-  font-size: 12px; /* Font kecil, huruf kapital */
-  color: #333; /* Warna gelap */
+  color: #007bff;
+  cursor: pointer;
   text-transform: uppercase;
-  transition: color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  transition: 0.2s ease;
 }
 
-.arrow {
-  margin-left: 10px;
-  font-size: 18px; /* Ukuran panah lebih besar */
-  transition: margin-left 0.3s;
+.button-as-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
 }
 
-.view-more-link:hover .arrow {
-  margin-left: 15px; /* Efek hover panah bergerak */
+.button-as-link .arrow {
+  margin-left: 8px;
+  font-size: 18px;
+  transition: margin-left 0.2s ease;
 }
 
-/* --- Pagination Styling (Perlu disesuaikan) --- */
+.button-as-link:hover .arrow {
+  margin-left: 12px;
+}
+
+/* Jika masih ingin mempertahankan class view-more-link */
+.view-more-link {
+  text-decoration: none;
+}
+
+/* =========================
+        PAGINATION
+========================= */
 .blog-pagination {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Posisikan ke kiri */
-  margin-top: 30px;
-  padding-left: 20px;
-  font-size: 14px;
-  color: #999;
+  margin-top: 40px;
+  font-size: 15px;
+  color: #888;
+  gap: 6px;
 }
 
 .current-page,
 .total-pages {
   font-size: 16px;
   font-weight: 600;
-  color: #333;
-}
-
-.divider {
-  margin: 0 5px;
-}
-
-.nav-separator {
-  margin: 0 10px;
+  color: #222;
 }
 
 .nav-button {
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 22px;
   cursor: pointer;
   color: #333;
-  padding: 0 5px;
-  transition: opacity 0.3s;
+  padding: 0 8px;
+  transition: 0.2s ease;
+}
+
+.nav-button:hover {
+  opacity: 0.6;
 }
 
 .nav-button:disabled {
@@ -145,24 +157,39 @@
   cursor: not-allowed;
 }
 
-/* Media query untuk tampilan mobile/tablet */
+/* =========================
+         RESPONSIVE
+========================= */
 @media (max-width: 768px) {
   .project-card {
-    flex-direction: column !important; /* Susun ke bawah */
-  }
-
-  .project-image-container,
-  .project-info {
-    flex: 0 0 100%;
-    max-width: 100%;
-    padding: 0;
-  }
-
-  .project-info {
-    padding: 20px;
+    flex-direction: column !important;
+    gap: 20px;
   }
 
   .project-image-container {
-    height: auto;
+    max-width: 100%;
+    width: 100%;
+    height: 220px;
+  }
+
+  .project-info {
+    max-width: 100%;
+    padding: 0 5px;
+  }
+
+  .project-title {
+    font-size: 22px;
+  }
+
+  .project-content {
+    font-size: 14px;
+  }
+
+  .project-page-title {
+    font-size: 32px;
+  }
+
+  .blog-pagination {
+    font-size: 13px;
   }
 }

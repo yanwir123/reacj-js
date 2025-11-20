@@ -99,7 +99,7 @@ const Contact: React.FC = () => {
               <div className="info-item">
                 <h3>Email & Website</h3>
                 <p>info@arthawarnarenovasi.com</p>
-                <p>www.arthawarnarenovasi.com</p>
+                <p>www.arthawana.com</p>
               </div>
             </div>
 
