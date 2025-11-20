@@ -307,7 +307,7 @@
 
 /* Small Mobile 480px */
 @media (max-width: 480px) {
-  .hero-title {
+  .hero {
     font-size: 28px;
   }
   .btn-primary,
