@@ -12,6 +12,9 @@ export default function Home() {
     <div className="home-wrapper">
       {/* ================= HERO ================= */}
       <section className="hero">
+        <div className="hero-right">
+          <img src={hero} className="hero-img" />
+        </div>
         <div className="hero-left">
           <h2 className="hero-project">Jasa Renovasi & Konstruksi</h2>
           <h1 className="hero-title">Mewujudkan Hunian Impian Anda</h1>
@@ -34,15 +37,6 @@ export default function Home() {
               Lihat Galeri
             </Link>
           </div>
-
-          <p className="hero-location">
-            📍 Anggrek No.24 Rt.10/03, Kelapa Dua, Kebon Jeruk
-          </p>
-          <p className="hero-phone">📞 0877-8794-2532</p>
-        </div>
-
-        <div className="hero-right">
-          <img src={hero} className="hero-img" />
         </div>
       </section>
 

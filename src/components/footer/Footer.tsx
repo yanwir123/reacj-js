@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
           <h4 className="column-title">Contacts</h4>
 
           <div className="contact-item">
-            <span className="contact-icon">📍</span>
+            <span className="contact-icon"></span>
             <p>
               Anggrek No. 24 Rt. 10/03, Kel. Kelapa Dua, Kec. Kebon Jeruk —
               Jakarta Barat
@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="contact-item">
-            <span className="contact-icon">📞</span>
+            <span className="contact-icon"></span>
             {/* Link langsung ke WhatsApp (walaupun di kolom kontak) */}
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
               0877-8794-2532
@@ -90,7 +90,7 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="contact-item">
-            <span className="contact-icon">📧</span>
+            <span className="contact-icon"></span>
             <p>arthawnarenovasi@gmail.com</p>
           </div>
         </div>

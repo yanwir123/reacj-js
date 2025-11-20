@@ -1,6 +1,6 @@
 /* --- GLOBAL RESET & UTILITIES --- */
 .about-page {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Font bersih */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
   background-color: #fff;
 }
@@ -13,13 +13,13 @@
 
 /* --- 1. HERO SECTION --- */
 .about-hero {
-  padding: 80px 0 60px; /* Memberi ruang napas atas bawah */
-  background-color: #f9f9f9; /* Latar abu-abu sangat muda agar beda sedikit */
+  padding: 80px 0 60px;
+  background-color: #f9f9f9;
   text-align: center;
 }
 
 .hero-content {
-  max-width: 800px; /* Membatasi lebar teks agar enak dibaca */
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -31,7 +31,6 @@
   letter-spacing: -1px;
 }
 
-/* Garis dekorasi kecil di bawah judul */
 .hero-divider {
   width: 60px;
   height: 4px;
@@ -52,7 +51,7 @@
 
 .values-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Membagi 2 kolom sama besar */
+  grid-template-columns: 1fr 1fr;
   gap: 50px;
   align-items: start;
 }
@@ -70,13 +69,12 @@
   display: inline-block;
 }
 
-/* Garis bawah untuk judul Visi/Misi */
 .value-title::after {
   content: "";
   display: block;
   width: 40%;
   height: 3px;
-  background-color: #ddd; /* Garis abu muda */
+  background-color: #ddd;
   margin-top: 10px;
 }
 
@@ -87,7 +85,7 @@
 }
 
 .value-list {
-  list-style: none; /* Menghilangkan bullet default */
+  list-style: none;
   padding: 0;
   margin: 0;
 }
@@ -101,7 +99,6 @@
   color: #666;
 }
 
-/* Custom Bullet Point (Garis kecil) */
 .value-list li::before {
   content: "—";
   position: absolute;
@@ -110,12 +107,12 @@
   font-weight: bold;
 }
 
-/* --- 3. CONTACT SECTION (Style Baru) --- */
+/* --- 3. CONTACT SECTION --- */
 .about-contact-section {
   background-color: #fff;
   width: 100%;
   padding: 80px 0;
-  border-top: 1px solid #eee; /* Pemisah tipis dengan bagian atas */
+  border-top: 1px solid #eee;
 }
 
 .contact-container-split {
@@ -203,19 +200,34 @@
   transform: translateY(-2px);
 }
 
+/* ===================== */
+/* FIX GOOGLE MAP AREA   */
+/* ===================== */
 .contact-map-area {
   flex: 1;
-  min-height: 450px;
+  height: 450px; /* Tinggi stabil */
   background-color: #f0f0f0;
-  border-radius: 4px; /* Sedikit radius agar tidak terlalu tajam */
+  border-radius: 4px;
   overflow: hidden;
+
+  max-width: 90%;
+  width: 100%;
 }
 
-/* --- RESPONSIVE --- */
+.contact-map-area iframe {
+  width: 100% !important;
+  height: 100% !important; /* FIX utama */
+  display: block;
+  border: 0;
+}
+
+/* --- RESPONSIVE MODE --- */
 @media (max-width: 768px) {
-  .values-grid,
-  .contact-container-split {
+  .values-grid {
     grid-template-columns: 1fr;
+  }
+
+  .contact-container-split {
     flex-direction: column;
     gap: 40px;
   }
@@ -233,6 +245,6 @@
   }
 
   .contact-map-area {
-    min-height: 300px;
+    height: 300px;
   }
 }

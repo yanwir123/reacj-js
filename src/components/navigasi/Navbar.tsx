@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/Logo nya.jpeg";
 
@@ -19,20 +19,26 @@ const Navbar: React.FC = () => {
     <header className="navbar">
       <div className="navbar-container">
         {/* Logo */}
-        <Link to="/" className="navbar-logo">
+        <NavLink to="/" className="navbar-logo">
           <img src={logo} alt="Logo" className="logo" />
           <div className="text-container">
             <span className="name">Arthawana Renovasi</span>
             <span className="tagline">Arthawana.com — Jakarta Barat</span>
           </div>
-        </Link>
+        </NavLink>
 
         {/* Desktop nav */}
         <nav className="navbar-nav desktop">
           {navItems.map((item) => (
-            <Link key={item.name} to={item.path} className="nav-item">
+            <NavLink
+              key={item.name}
+              to={item.path}
+              className={({ isActive }) =>
+                isActive ? "nav-item active-nav" : "nav-item"
+              }
+            >
               {item.name}
-            </Link>
+            </NavLink>
           ))}
         </nav>
 
@@ -50,14 +56,16 @@ const Navbar: React.FC = () => {
         <div className="mobile-menu">
           <nav className="navbar-nav mobile">
             {navItems.map((item) => (
-              <Link
+              <NavLink
                 key={item.name}
                 to={item.path}
-                className="nav-item"
+                className={({ isActive }) =>
+                  isActive ? "nav-item active-nav" : "nav-item"
+                }
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
-              </Link>
+              </NavLink>
             ))}
           </nav>
         </div>
