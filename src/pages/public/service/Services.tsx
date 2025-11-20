@@ -1,7 +1,24 @@
 import React from "react";
 import "./Services.css";
 
-// Interface service item
+// Import semua gambar
+import img1 from "../../../assets/img/gmbr1 (1).jpeg";
+import img2 from "../../../assets/img/gmbr1 (2).jpeg";
+import img3 from "../../../assets/img/gmbr1 (9).jpeg";
+import img4 from "../../../assets/img/gmbr1 (4).jpeg";
+import img5 from "../../../assets/img/gmbr1 (5).jpeg";
+import img6 from "../../../assets/img/gmbr1 (6).jpeg";
+import img7 from "../../../assets/img/gmbr1 (7).jpeg";
+import img8 from "../../../assets/img/gmbr1 (10).jpeg";
+
+import img9 from "../../../assets/img/gmbr1 (3).jpeg";
+import img10 from "../../../assets/img/gmbr1 (7).jpeg";
+
+import gmbr2_1 from "../../../assets/img/gmbr2 (1).png";
+import gmbr2_2 from "../../../assets/img/gmbr2 (2).png";
+import gmbr2_3 from "../../../assets/img/gmbr2 (3).png";
+
+// Interface
 interface ServiceItem {
   id: number;
   title: string;
@@ -10,104 +27,101 @@ interface ServiceItem {
 }
 
 const Services: React.FC = () => {
-  // Data disesuaikan berdasarkan konteks visual gambar
   const items: ServiceItem[] = [
     {
       id: 1,
       title: "Jasa Renovasi Total Rumah Tinggal",
       description:
         "Melayani renovasi rumah tinggal, dari perombakan minor hingga peningkatan menjadi 2 lantai atau lebih (seperti proyek Bpk. Wendy).",
-      image_url: "../../../../public/gmbr1 (1).jpeg", // Renovasi Rumah Bpk. Wendy
+      image_url: img1,
     },
     {
       id: 2,
       title: "Pembangunan Rumah Baru (Desain Minimalis)",
       description:
         "Jasa konstruksi bangunan baru dengan desain modern dan minimalis. Pengerjaan cepat, rapi, dan sesuai standar kualitas bangunan.",
-      image_url: "../../../../public/gmbr1 (2).jpeg", // Bangunan Rumah Baru Minimalis Putih
+      image_url: img2,
     },
     {
       id: 3,
       title: "Pekerjaan Struktur Lantai Atas / Dak",
       description:
-        "Melayani pengecoran, pemasangan balok, dan pembangunan struktur lantai atas menggunakan baja ringan atau beton (terlihat pada gmbr1 (9)).",
-      image_url: "../../../../public/gmbr1 (9).jpeg", // Pekerjaan Struktur Rangka Atas
+        "Melayani pengecoran, pemasangan balok, dan pembangunan struktur lantai atas menggunakan baja ringan atau beton.",
+      image_url: img3,
     },
     {
       id: 4,
       title: "Perubahan Fasad & Penambahan Teras/Garasi",
       description:
-        "Renovasi eksterior untuk tampilan rumah yang lebih segar (seperti proyek Bpk. Ray & Ibu Dinda). Meliputi fasad, pagar, dan teras.",
-      image_url: "../../../../public/gmbr1 (4).jpeg", // Renovasi Rumah Bpk. Ray & Ibu Dinda
+        "Renovasi eksterior rumah seperti fasad, pagar, teras, dan area depan lainnya.",
+      image_url: img4,
     },
     {
       id: 5,
       title: "Pemasangan Bata Ringan & Pengecatan Dinding",
       description:
-        "Pekerjaan pemasangan material dinding (bata ringan) dan penyelesaian akhir seperti plester, acian, dan pengecatan (terlihat pada gmbr1 (5)).",
-      image_url: "../../../../public/gmbr1 (5).jpeg", // Pemasangan Bata & Pengecatan
+        "Pemasangan bata ringan, plester, acian, dan pengecatan dinding.",
+      image_url: img5,
     },
     {
       id: 6,
       title: "Pembangunan Rumah Dua Lantai",
-      description:
-        "Layanan lengkap pembangunan rumah dari nol hingga selesai, khususnya untuk bangunan bertingkat dua di area padat penduduk (seperti proyek di Kelapa Dua).",
-      image_url: "../../../../public/gmbr1 (6).jpeg", // Proyek Kelapa Dua
+      description: "Pengerjaan rumah 2 lantai dari pondasi hingga finishing.",
+      image_url: img6,
     },
     {
       id: 7,
       title: "Konstruksi Balok & Kolom Beton",
       description:
-        "Fokus pada pekerjaan struktural, seperti pembesian dan pengecoran balok serta kolom yang kokoh untuk menopang beban bangunan bertingkat.",
-      image_url: "../../../../public/gmbr1 (7).jpeg", // Pekerjaan Balok & Kolom
+        "Pekerjaan pembesian, pengecoran kolom dan balok yang kuat dan sesuai standar.",
+      image_url: img7,
     },
     {
       id: 8,
       title: "Pekerjaan Rangka Atap Baja & Scaffolding",
       description:
-        "Pemasangan rangka atap baja dan persiapan *scaffolding* (perancah) untuk pekerjaan di ketinggian dengan standar keselamatan.",
-      image_url: "../../../../public/gmbr1 (10).jpeg", // Pekerja di atas rangka baja
+        "Pemasangan rangka atap baja, pekerjaan di ketinggian, dan scaffolding.",
+      image_url: img8,
     },
-    // Tambahan layanan umum yang mungkin juga dilakukan kontraktor/tukang bangunan
+
+    // Layanan tambahan
     {
       id: 9,
       title: "Perbaikan Atap Bocor dan Plafon Rusak",
       description:
-        "Solusi cepat untuk atap yang bocor, penggantian genteng, dan perbaikan/pemasangan plafon gypsum atau PVC.",
-      image_url: "../../../../public/gmbr1 (3).jpeg", // Bangunan Selesai (sebagai representasi perbaikan)
+        "Memperbaiki atap bocor, mengganti plafon, dan pekerjaan perawatan rumah.",
+      image_url: img9,
     },
     {
       id: 10,
       title: "Pemasangan Keramik Lantai & Dinding",
       description:
-        "Pemasangan keramik, marmer, atau granit untuk lantai dan dinding kamar mandi, dapur, atau area lainnya.",
-      image_url: "../../../../public/gmbr1 (7).jpeg", // Menggunakan gambar konstruksi sebagai umum
+        "Pemasangan keramik, granit, marmer untuk lantai dan dinding.",
+      image_url: img10,
     },
-    // ... (Data Item 1 hingga 10 tidak ditampilkan, diasumsikan sudah ada)
 
-    // Data Item 11, 12, dan 13 disesuaikan:
+    // gmbr2 section
     {
       id: 11,
       title: "Renovasi Interior Total (Before & After)",
       description:
-        "Jasa perombakan total interior rumah, mengubah ruang yang rusak atau lama menjadi desain modern dan fungsional (seperti Dapur & Ruang Keluarga pada gambar).",
-      image_url: "../../../../public/gmbr2 (1).png", // Sesuai dengan gambar Renovasi Interior Before/After
+        "Mengubah interior lama menjadi tampilan modern dan fungsional.",
+      image_url: gmbr2_1,
     },
     {
       id: 12,
       title: "Pekerjaan Finishing Fasad dan Halaman",
       description:
-        "Fokus pada pekerjaan akhir seperti pemasangan roster, lantai teras, dan penyelesaian fasad bangunan. Ini termasuk pekerjaan *landscaping* sederhana di halaman depan.",
-      image_url: "../../../../public/gmbr2 (2).png", // Sesuai dengan gambar Pekerjaan Fasad/Halaman dengan Roster
+        "Finishing fasad, roster, halaman depan, dan landscape sederhana.",
+      image_url: gmbr2_2,
     },
     {
       id: 13,
       title: "Pekerjaan Struktur Beton (Pengecoran)",
       description:
-        "Layanan pengecoran struktur utama seperti balok, kolom, atau dak lantai menggunakan beton *ready-mix* (truk mixer) untuk efisiensi dan kualitas tinggi.",
-      image_url: "../../../../public/gmbr2 (3).png", // Sesuai dengan gambar Pengecoran dengan Truk Mixer
+        "Pengecoran beton untuk balok, kolom, dak dengan kualitas tinggi.",
+      image_url: gmbr2_3,
     },
-    // ... (Lanjutan kode jika ada),
   ];
 
   return (

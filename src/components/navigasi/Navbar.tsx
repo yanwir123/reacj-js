@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import logo from "../../assets/Logo nya.jpeg";
 
 const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,7 +20,7 @@ const Navbar: React.FC = () => {
       <div className="navbar-container">
         {/* Logo */}
         <Link to="/" className="navbar-logo">
-          <img src="../../assets/Logo nya.jpeg" alt="Logo" className="logo" />
+          <img src={logo} alt="Logo" className="logo" />
           <div className="text-container">
             <span className="name">Arthawana Renovasi</span>
             <span className="tagline">Arthawana.com — Jakarta Barat</span>

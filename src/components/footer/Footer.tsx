@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import logo from "../../../public/Logo nya.jpeg";
+import logo from "../../assets/Logo nya.jpeg";
 import "./Footer.css";
 
 // Import ikon sosial media
-import WhatsAppIcon from "../../../public/whatsapp.png";
-import TikTokIcon from "../../../public/tiktok.png";
-import InstagramIcon from "../../../public/instagram.png";
-import YoutubeIcon from "../../../public/youtube.png";
+import WhatsAppIcon from "../../assets/whatsapp.png";
+import TikTokIcon from "../../assets/tiktok.png";
+import InstagramIcon from "../../assets/instagram.png";
+import YoutubeIcon from "../../assets/youtube.png";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();

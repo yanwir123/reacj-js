@@ -1,69 +1,68 @@
 import React, { useState } from "react";
-import "./Blog.css"; // Pastikan path ini benar
+import "./Blog.css";
 
-// Interface Project Item yang diperbarui
+// Import semua gambar
+import img1 from "../../../assets/img/gmbr1 (1).jpeg";
+import img2 from "../../../assets/img/gmbr1 (2).jpeg";
+import img3 from "../../../assets/img/gmbr1 (9).jpeg";
+import img4 from "../../../assets/img/gmbr1 (4).jpeg";
+import img5 from "../../../assets/img/gmbr1 (6).jpeg";
+
 interface ProjectItem {
   id: number;
   title: string;
-  short_content: string; // Konten singkat untuk tampilan awal
-  long_content: string; // Konten detail untuk tampilan diperluas
+  short_content: string;
+  long_content: string;
   image_url: string;
 }
 
-// Data proyek dengan konten detail yang disesuaikan dengan layanan Konstruksi/Renovasi
 const projectsData: ProjectItem[] = [
   {
     id: 1,
     title: "Upgrading Fasad dan Struktur Rumah Tinggal (Bpk. Wendy)",
     short_content:
-      "Transformasi ekstensif rumah 1 lantai menjadi hunian **2 lantai modern** di Jakarta Selatan. Proyek ini meliputi penambahan ruang vertikal dan pembaruan total desain fasad minimalis.",
+      "Transformasi ekstensif rumah 1 lantai menjadi hunian **2 lantai modern**...",
     long_content:
-      "**DETAIL PROYEK:** Renovasi total ini mencakup **peningkatan struktur** untuk menopang beban lantai kedua. Luas bangunan bertambah signifikan menjadi **220m²**. Lingkup pekerjaan mencakup perhitungan sipil yang akurat, pembangunan struktur baru, instalasi mekanikal/elektrikal/plumbing (MEP) yang terintegrasi, hingga **finishing premium** pada cat dan desain pagar kontemporer. **Komitmen:** Hasil akhir yang kokoh, fungsional, dan estetis.",
-    image_url: "../../../../public/gmbr1 (1).jpeg",
+      "**DETAIL PROYEK:** Renovasi total ini mencakup peningkatan struktur...",
+    image_url: img1,
   },
   {
     id: 2,
-    title: "Konstruksi Rumah Baru (Turnkey Project) Desain Minimalis",
+    title: "Konstruksi Rumah Baru (Turnkey Project)",
     short_content:
-      "Pembangunan rumah tinggal baru (Ground Up) dengan konsep **arsitektur minimalis** yang menekankan efisiensi tata ruang dan pencahayaan alami yang optimal.",
+      "Pembangunan rumah tinggal baru (Ground Up) dengan konsep minimalis...",
     long_content:
-      "**DETAIL PROYEK:** Kami menyediakan layanan **Turnkey Project** (dari nol sampai serah terima kunci), memastikan *timeline* dan anggaran dipatuhi secara ketat. Fokus kami adalah pada **penggunaan material struktural SNI**, tata letak interior yang efisien, dan penerapan desain fasad dominan putih yang bersih dan modern. **Klaim:** Garansi struktur dan pengerjaan yang terjamin untuk daya tahan jangka panjang.",
-    image_url: "../../../../public/gmbr1 (2).jpeg",
+      "**DETAIL PROYEK:** Kami menyediakan layanan Turnkey Project...",
+    image_url: img2,
   },
   {
     id: 3,
-    title: "Penguatan Struktur dan Persiapan Pengecoran Dak",
-    short_content:
-      "Pekerjaan spesialis dalam **penguatan struktur beton bertulang** dan pemasangan rangka atap baja ringan, esensial untuk pembangunan atau penambahan lantai di masa depan.",
-    long_content:
-      "**DETAIL PROYEK:** Layanan ini mencakup **analisis beban** dan perencanaan struktur yang ketat. Proses meliputi instalasi *formwork* presisi, pembesian balok dan kolom menggunakan besi ulir standar, dan pengecoran mutu beton yang teruji. **Keunggulan:** Mempersiapkan pondasi yang aman dan stabil untuk menahan beban tambahan vertikal sesuai standar teknis konstruksi.",
-    image_url: "../../../../public/gmbr1 (9).jpeg",
+    title: "Penguatan Struktur dan Pengecoran Dak",
+    short_content: "Pekerjaan spesialis struktur beton bertulang...",
+    long_content: "**DETAIL PROYEK:** Layanan ini mencakup analisis beban...",
+    image_url: img3,
   },
   {
     id: 4,
-    title: "Transformasi Fasad Eksterior (Proyek Bpk. Ray & Ibu Dinda)",
-    short_content:
-      "Layanan **perombakan total tampilan depan** (fasad) hunian di Cluster Serpong Indah, melibatkan elemen batu alam dan penggantian pagar untuk meningkatkan daya tarik properti.",
+    title: "Transformasi Fasad Eksterior",
+    short_content: "Perombakan total tampilan fasad rumah...",
     long_content:
-      "**DETAIL PROYEK:** Kami merancang ulang *curb appeal* properti ini secara menyeluruh. Lingkup pekerjaan meliputi penghilangan material fasad lama, pemasangan **batu alam modern** (seperti yang terlihat), pembuatan desain pagar besi baru, dan perbaikan area carport/teras. **Tujuan:** Meningkatkan nilai estetika dan investasi properti secara instan.",
-    image_url: "../../../../public/gmbr1 (4).jpeg",
+      "**DETAIL PROYEK:** Mengganti batu alam, desain pagar baru...",
+    image_url: img4,
   },
   {
     id: 5,
-    title: "Pekerjaan Dinding dan Finishing Interior/Eksterior",
-    short_content:
-      "Layanan spesialis pada tahap *superstructure*, fokus pada **pemasangan dinding bata ringan** yang cepat dan efisien, serta proses *finishing* halus (plester, aci, cat).",
+    title: "Pekerjaan Dinding & Finishing",
+    short_content: "Spesialis pemasangan dinding bata ringan dan finishing...",
     long_content:
-      "**DETAIL PROYEK:** Kami menjamin dinding tegak lurus dan rata melalui penggunaan *waterpass* laser. Pekerjaan *finishing* melibatkan proses **tiga tahap** (plester, acian, dan cat berkualitas) untuk mencegah retak rambut dan menjamin warna tahan lama. **Standar:** Kerapihan pengerjaan di setiap detail sudut dan sambungan, siap untuk serah terima.",
-    image_url: "../../../../public/gmbr1 (6).jpeg",
+      "**DETAIL PROYEK:** Finishing 3 tahap untuk hasil halus dan rapi...",
+    image_url: img5,
   },
 ];
 
 const ProjectsList: React.FC = () => {
-  // State untuk menyimpan ID proyek yang sedang diperluas
   const [expandedId, setExpandedId] = useState<number | null>(null);
 
-  // Fungsi untuk menangani klik tombol "LIHAT SELENGKAPNYA"
   const handleToggleExpand = (id: number) => {
     setExpandedId((prevId) => (prevId === id ? null : id));
   };
@@ -71,13 +70,11 @@ const ProjectsList: React.FC = () => {
   return (
     <div className="projects-page-wrapper">
       <section className="projects-section container">
-        {/* Header */}
         <div className="projects-header">
           <h1 className="header-label-bold project-page-title">Proyek Kami</h1>
         </div>
         <hr />
 
-        {/* List Projects */}
         <div className="projects-list">
           {projectsData.map((p, index) => {
             const imageOnLeft = index % 2 === 0;
@@ -90,10 +87,8 @@ const ProjectsList: React.FC = () => {
                   imageOnLeft ? "image-left" : "image-right"
                 }`}
               >
-                {/* Image Section */}
                 <div className="project-image-container">
                   <img
-                    // PATH disesuaikan dengan data layanan Anda
                     src={p.image_url}
                     alt={p.title}
                     className="project-image"
@@ -101,12 +96,9 @@ const ProjectsList: React.FC = () => {
                   />
                 </div>
 
-                {/* Text Section */}
                 <div className="project-info">
                   <h3 className="project-title">{p.title}</h3>
-                  {/* Tampilkan konten singkat atau konten panjang */}
                   <p className="project-content">
-                    {/* Konten yang ditampilkan di sini */}
                     {isExpanded ? p.long_content : p.short_content}
                   </p>
 
@@ -115,13 +107,9 @@ const ProjectsList: React.FC = () => {
                     className="view-more-link button-as-link"
                   >
                     {isExpanded ? (
-                      <>
-                        SEMBUNYIKAN DETAIL <span className="arrow"> ↑</span>
-                      </>
+                      <>SEMBUNYIKAN DETAIL ↑</>
                     ) : (
-                      <>
-                        LIHAT SELENGKAPNYA <span className="arrow"> →</span>
-                      </>
+                      <>LIHAT SELENGKAPNYA →</>
                     )}
                   </button>
                 </div>
@@ -131,7 +119,7 @@ const ProjectsList: React.FC = () => {
         </div>
 
         <hr />
-        {/* Pagination (static) */}
+
         <div className="blog-pagination">
           <span className="current-page">01</span>
           <span className="divider">/</span>

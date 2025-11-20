@@ -5,6 +5,7 @@ import Blog from "../blog/Blog";
 import Gallery from "../gallery/Gallery";
 import Contact from "../contact/Contact";
 import About from "../about/About";
+import hero from "../../../assets/img/gmbr1 (7).jpeg";
 
 export default function Home() {
   return (
@@ -41,7 +42,7 @@ export default function Home() {
         </div>
 
         <div className="hero-right">
-          <img src="../../../../public/gmbr1 (7).jpeg" className="hero-img" />
+          <img src={hero} className="hero-img" />
         </div>
       </section>
 

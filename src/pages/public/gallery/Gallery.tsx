@@ -1,6 +1,19 @@
 import React from "react";
 import "./Gallery.css";
 
+// IMPORT GAMBAR
+import img1 from "../../../assets/img/gmbr1 (1).jpeg";
+import img2 from "../../../assets/img/gmbr1 (2).jpeg";
+import img3 from "../../../assets/img/gmbr1 (9).jpeg";
+import img4 from "../../../assets/img/gmbr1 (4).jpeg";
+import img5 from "../../../assets/img/gmbr1 (5).jpeg";
+import img6 from "../../../assets/img/gmbr1 (6).jpeg";
+import img7 from "../../../assets/img/gmbr1 (7).jpeg";
+import img8 from "../../../assets/img/gmbr1 (10).jpeg";
+import img9 from "../../../assets/img/gmbr2 (1).png";
+import img10 from "../../../assets/img/gmbr2 (2).png";
+import img11 from "../../../assets/img/gmbr2 (3).png";
+
 // Interface gallery item
 interface GalleryItem {
   id: number;
@@ -9,88 +22,39 @@ interface GalleryItem {
 }
 
 const Gallery: React.FC = () => {
-  // Data hardcode disesuaikan agar cocok dengan data layanan konstruksi/renovasi
   const items: GalleryItem[] = [
-    {
-      id: 1,
-      title: "Renovasi Total Rumah Tinggal",
-      image_url: "../../../../public/gmbr1 (1).jpeg", // Rumah Bpk. Wendy
-    },
-    {
-      id: 2,
-      title: "Pembangunan Rumah Baru Minimalis",
-      image_url: "../../../../public/gmbr1 (2).jpeg", // Rumah Baru Putih
-    },
-    {
-      id: 3,
-      title: "Pekerjaan Struktur Lantai Atas",
-      image_url: "../../../../public/gmbr1 (9).jpeg", // Struktur Rangka Atas
-    },
-    {
-      id: 4,
-      title: "Perubahan Fasad Rumah",
-      image_url: "../../../../public/gmbr1 (4).jpeg", // Renovasi Bpk. Ray & Ibu Dinda
-    },
-    {
-      id: 5,
-      title: "Pemasangan Dinding Bata Ringan",
-      image_url: "../../../../public/gmbr1 (5).jpeg", // Pemasangan Bata
-    },
-    {
-      id: 6,
-      title: "Proyek Pembangunan Dua Lantai",
-      image_url: "../../../../public/gmbr1 (6).jpeg", // Proyek Kelapa Dua
-    },
-    {
-      id: 7,
-      title: "Konstruksi Balok & Kolom Beton",
-      image_url: "../../../../public/gmbr1 (7).jpeg", // Pekerjaan Balok & Kolom
-    },
-    {
-      id: 8,
-      title: "Pekerjaan Rangka Atap Baja",
-      image_url: "../../../../public/gmbr1 (10).jpeg", // Pekerja di atas rangka baja
-    },
-    {
-      id: 9,
-      title: "Renovasi Interior Dapur/Ruang Keluarga",
-      image_url: "../../../../public/gmbr2 (1).png", // Renovasi Interior Before/After
-    },
-    {
-      id: 10,
-      title: "Pekerjaan Finishing Fasad",
-      image_url: "../../../../public/gmbr2 (2).png", // Fasad dengan Roster
-    },
-    {
-      id: 11,
-      title: "Pengecoran Struktur Beton",
-      image_url: "../../../../public/gmbr2 (3).png", // Pengecoran Truk Mixer
-    },
+    { id: 1, title: "Renovasi Total Rumah Tinggal", image_url: img1 },
+    { id: 2, title: "Pembangunan Rumah Baru Minimalis", image_url: img2 },
+    { id: 3, title: "Pekerjaan Struktur Lantai Atas", image_url: img3 },
+    { id: 4, title: "Perubahan Fasad Rumah", image_url: img4 },
+    { id: 5, title: "Pemasangan Dinding Bata Ringan", image_url: img5 },
+    { id: 6, title: "Proyek Pembangunan Dua Lantai", image_url: img6 },
+    { id: 7, title: "Konstruksi Balok & Kolom Beton", image_url: img7 },
+    { id: 8, title: "Pekerjaan Rangka Atap Baja", image_url: img8 },
+    { id: 9, title: "Renovasi Interior Dapur", image_url: img9 },
+    { id: 10, title: "Finishing Fasad", image_url: img10 },
+    { id: 11, title: "Pengecoran Struktur Beton", image_url: img11 },
   ];
 
   return (
     <div className="gallery-page-wrapper">
       <section className="gallery-section container">
-        {/* Header */}
         <div className="gallery-header">
           <h2 className="header-label-light">Portofolio</h2>
           <h1 className="header-label-bold">Galeri Proyek</h1>
           <div className="header-divider"></div>
         </div>
 
-        {/* Grid Foto */}
         <div className="gallery-grid">
           {items.map((i) => (
             <div key={i.id} className="gallery-card">
               <img
-                // Perhatian: Pastikan path ini benar di proyek Anda.
-                // Saya menggunakan struktur yang sama seperti Anda, tapi disarankan
-                // untuk menggunakan path absolut atau import jika menggunakan framework seperti Next.js/Vite.
                 src={i.image_url}
                 alt={i.title}
                 className="gallery-image"
                 loading="lazy"
               />
+
               <div className="gallery-info">
                 <h4 className="gallery-title">{i.title}</h4>
               </div>
@@ -98,7 +62,6 @@ const Gallery: React.FC = () => {
           ))}
         </div>
 
-        {/* Pagination statis (seperti contoh gambar) */}
         <div className="gallery-pagination">
           <span className="current-page">01</span>
           <span className="divider">/</span>
