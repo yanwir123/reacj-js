@@ -19,11 +19,7 @@ const Navbar: React.FC = () => {
       <div className="navbar-container">
         {/* Logo */}
         <Link to="/" className="navbar-logo">
-          <img
-            src="../../../public/Logo nya.jpeg"
-            alt="Logo"
-            className="logo"
-          />
+          <img src="../../assets/Logo nya.jpeg" alt="Logo" className="logo" />
           <div className="text-container">
             <span className="name">Arthawana Renovasi</span>
             <span className="tagline">Arthawana.com — Jakarta Barat</span>
